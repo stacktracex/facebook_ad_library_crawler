@@ -5,7 +5,7 @@ A crawler for Facebook Ad Library that supports:
 - Downloading ad creatives (images)
 - Modular structure for easy extension
 
----
+--- 
 
 ## 📁 Project Structure
 
