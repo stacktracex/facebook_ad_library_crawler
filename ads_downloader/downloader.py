@@ -27,7 +27,7 @@ def load_results_from_txt(filename="data/ads_results.txt"):
             results.append(json.loads(line))
     return results
 
-def download_images(results, out_dir="images"):
+def download_images(results, out_dir="data/download"):
     os.makedirs(out_dir, exist_ok=True)
 
     total_ads = len(results)
@@ -56,6 +56,10 @@ def download_images(results, out_dir="images"):
             start_date_str = timestamp_to_date(start_date)
             end_date_str = timestamp_to_date(end_date)
 
+            # ⭐ 新增：按 start_date 建子目录
+            date_dir = os.path.join(out_dir, start_date_str)
+            os.makedirs(date_dir, exist_ok=True)
+
             images = snapshot.get("images", [])
             img_count = len(images)
 
@@ -69,7 +73,7 @@ def download_images(results, out_dir="images"):
                     continue
 
                 filename = f"{ad_id}_{page_name}_{start_date_str}_{end_date_str}_img{img_idx}.jpg"
-                filepath = os.path.join(out_dir, filename)
+                filepath = os.path.join(date_dir, filename)
 
                 # ⭐⭐⭐ 核心新增逻辑：已存在就跳过 ⭐⭐⭐
                 if os.path.exists(filepath):
