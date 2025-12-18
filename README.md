@@ -1,16 +1,23 @@
 # facebook_ad_library_crawler
-Crawl Facebook's stock library
 
-facebook_ads_scraper/           # 项目根目录
-├── ads_fetcher/                # 抓取模块包
-│   ├── __init__.py
-│   └── fetcher.py              # 抓取核心代码
-├── ads_downloader/             # 下载模块包
-│   ├── __init__.py
-│   └── downloader.py           # 下载核心代码
-├── data/                       # 存放抓取结果文件
-│   └── ads_results.txt
-├── requirements.txt            # 依赖文件
-├── run_fetch.py                # 抓取模块入口脚本
-├── run_download.py             # 下载模块入口脚本
+A crawler for Facebook Ad Library that supports:
+- Fetching ad metadata
+- Downloading ad creatives (images)
+- Modular structure for easy extension
+
+---
+
+## 📁 Project Structure
+
+```text
+facebook_ad_library/              # Project root
+├── ads_fetcher/                   # Fetching module
+│   └── fetcher.py                 # Core fetch logic
+│
+├── ads_downloader/                # Downloading module
+│   └── downloader.py              # Core download logic
+├── data/                          # Data output directory
+│   └── ads_results.txt            # Fetched ad results
+├── run_fetch.py                   # Entry script for fetching ads
+├── run_download.py                # Entry script for downloading creatives
 └── README.md
